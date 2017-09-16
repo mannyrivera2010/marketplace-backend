@@ -4,17 +4,25 @@ var application = express();
 var bodyParser = require('body-parser');
 var routeConfig = require('./route-config');
 var settingsConfig = require('./settings/settings-config');
+var wrap = require('async-middleware').wrap
 
 function configureWorker(application) {
   configureApplication(application);
   configureRoutes(application);
   configureErrorHandler(application);
 
+
   startServer(application);
 }
 
+
 function configureApplication(application) {
+    // application.use(wrap(function (err, req, res) {
+    //   return Promise.reject(err)
+    // }))
+    //
   application.use(bodyParser.json());
+  application.use(bodyParser.urlencoded({ extended: false }));
 
   application.use(function(req, res, next) {
     res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
@@ -23,6 +31,7 @@ function configureApplication(application) {
     res.type('application/json');
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     next();
   });
 }
@@ -32,6 +41,7 @@ function configureRoutes(application) {
 }
 
 function configureErrorHandler(application) {
+
     application.use(function (err, req, res, next) {
         if (err) {
             switch (err.name) {
@@ -50,6 +60,8 @@ function configureErrorHandler(application) {
         next();
     });
 }
+
+
 
 function startServer(application) {
   var server = http.createServer(application);

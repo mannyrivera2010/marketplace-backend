@@ -11,7 +11,26 @@
       "method": "GET",
       "controller": "../api/listing/listing-controller",
       "action":"getListing"
+  },
+  {
+      "route": "/api/agency/",
+      "method": "GET",
+      "controller": "../api/agency/agency-controller",
+      "action":"listAgency"
+  },
+  {
+    "route": "/api/agency/:agency_id",
+    "method": "GET",
+    "controller": "../api/agency/agency-controller",
+    "action":"getAgency"
+    },
+    {
+      "route": "/api/agency/",
+      "method": "POST",
+      "controller": "../api/agency/agency-controller",
+      "action":"postAgency"
     }
+
   ],
   "include":[
       {"directory": "../api/agency/routes.json"},

@@ -1,4 +1,45 @@
+var Promise = require('bluebird')
+var models = require('../../../app/models')
+
 function StorefrontService() {
+    this.listingService = require('./listing-service');
+    this.included_listing_fields = listingService.included_listing_fields
+}
+
+function get_storefront_recommended() {
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_listing
+              .findAll({include:this.included_listing_fields, limit: 10})
+              .then(result => { return resolve(result) });
+        }
+    )
+}
+
+function get_storefront_most_popular() {
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_listing
+              .findAll({include:this.included_listing_fields, limit: 36})
+              .then(result => { return resolve(result) });
+        }
+    )
+}
+
+function get_storefront_featured(){
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_listing
+              .findAll({include:this.included_listing_fields, limit: 10})
+              .then(result => { return resolve(result) });
+        }
+    )
+}
+
+function get_storefront_recent(){
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_listing
+              .findAll({include:this.included_listing_fields, limit: 24})
+              .then(result => { return resolve(result) });
+        }
+    )
 }
 
 // GET /api/storefront

@@ -1,22 +1,42 @@
+var Promise = require('bluebird')
+var models = require('../../../app/models')
+
 function AgencyService() {
 }
 
 // GET /api/agency
 // Get a list of all system-wide Agency entries
 function listAgency() {
-  return [{}];
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_agency
+              .findAll()
+              .then(result => { return resolve(result) })
+              .catch(result => { return reject(result) });
+    })
 }
 
 // GET /api/agency/{pk}
 // Find an Agency Entry by ID
-function getAgency(id) {
-  return { id: id };
+function getAgency(agencyId) {
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_agency
+              .findOne({where:{'id': agencyId}})
+              .then(result => { return resolve(result) })
+              .catch(result => { return reject(result) });
+    })
 }
 
 // POST /api/agency/
 // Add an Agency
 function postAgency(agencyObject) {
-  return { id: id };
+    return new Promise((resolve, reject) => {
+        models.ozpcenter_agency.create({
+                title: agencyObject.title,
+                short_name: agencyObject.short_name,
+                icon_id: agencyObject.icon_id})
+            .then(result => { return resolve(result) })
+            .catch(result => { return reject(result) })
+    })
 }
 
 

@@ -33,17 +33,19 @@ function listListing() {
     )
 }
 
+
 // GET /api/listing/{pk}
 // Find an Listing Entry by ID
 function getListing(listing_id) {
     return new Promise((resolve, reject) => {
         models.ozpcenter_listing
-              .findAll({include:included_listing_fields,
+              .findOne({include:included_listing_fields,
                   where:{'id':listing_id}})
               .then(result => { return resolve(result) });
         }
     )
 }
+
 
 // POST /api/listing/
 // Add an Listing
@@ -79,7 +81,9 @@ ListingService.prototype = {
   postListing: postListing,
   updateListing: updateListing,
   partialUpdateListing: partialUpdateListing,
-  deleteUpdateListing: deleteUpdateListing
+  deleteUpdateListing: deleteUpdateListing,
+
+  included_listing_fields: included_listing_fields
 };
 
 var listingService = new ListingService();

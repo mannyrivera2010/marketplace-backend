@@ -34,12 +34,28 @@ function partialUpdateLibrary(id) {
 }
 
 
-// DELETE /api/library/{pk}
-// Delete an Library Entry by ID
+/*
+DELETE /api/library/{pk}
+Delete an Library Entry by ID
+*/
 function deleteUpdateLibrary(id) {
   return { id: id };
 }
 
+
+/*
+*/
+function create_self_user_library_entry(username, listing_id, folder_name, position){
+
+}
+
+function create_batch_library_entries(username, data){
+
+}
+
+function import_bookmarks(current_username, peer_bookmark_notification_id):{
+
+}
 
 LibraryService.prototype = {
   listLibrary: listLibrary,

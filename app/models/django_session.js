@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     session_key: {
       type: DataTypes.STRING(40),
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true
     },
     session_data: {
