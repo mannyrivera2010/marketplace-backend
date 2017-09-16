@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+        "route": "/api/listing/",
+        "method": "GET",
+        "controller": "../api/listing/listing-controller",
+        "action":"listListing"
+    },
+    {
+      "route": "/api/listing/:listing_id",
+      "method": "GET",
+      "controller": "../api/listing/listing-controller",
+      "action":"getListing"
+    }
+  ],
+  "include":[
+      {"directory": "../api/agency/routes.json"},
+      {"directory": "../api/category/routes.json"},
+      {"directory": "../api/contact/routes.json"},
+      {"directory": "../api/image/routes.json"},
+      {"directory": "../api/intent/routes.json"},
+      {"directory": "../api/library/routes.json"},
+      {"directory": "../api/listing/routes.json"},
+      {"directory": "../api/notification/routes.json"},
+      {"directory": "../api/profile/routes.json"},
+      {"directory": "../api/storefront/routes.json"},
+      {"directory": "../api/subscription/routes.json"}
+  ]
+}

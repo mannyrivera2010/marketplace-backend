@@ -1,0 +1,13 @@
+{
+  "clusterEnabled": true,
+  "masterPort": 8000,
+  "workerPort": 9000,
+  "queueLength": 1000,
+  "database":{
+      "username": "root",
+      "password": "password",
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "pgsql"
+  }
+}

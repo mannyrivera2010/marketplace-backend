@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+        "route": "/listing",
+        "method": "GET",
+        "controller": "listing-list-controller"
+    },
+    {
+        "route": "/listing/:listing_id",
+        "method": "GET",
+        "controller": "listing-controller"
+    }
+  ]
+}
