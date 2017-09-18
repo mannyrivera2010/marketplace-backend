@@ -1,5 +1,5 @@
 var Promise = require('bluebird')
-var models = require('../../../app/models')
+var models = require('../../app/models')
 
 function AgencyService() {
 }
@@ -81,6 +81,4 @@ AgencyService.prototype = {
   deleteAgency: deleteAgency
 };
 
-var agencyService = new AgencyService();
-
-module.exports = agencyService;
+module.exports = AgencyService;

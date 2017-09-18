@@ -1,5 +1,5 @@
 var Promise = require('bluebird')
-var models = require('../../../app/models')
+var models = require('../../app/models')
 
 function ListingService() {
 }

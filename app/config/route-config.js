@@ -1,5 +1,7 @@
 var settingsConfig = require('./settings/settings-config');
 
+// var controllers = require('../controllers');
+
 function RouteConfig() {
 }
 
@@ -45,7 +47,8 @@ function loadController(routeItem) {
   }
 
   try {
-    controller = require(routeItem.controller);
+    controller_module = require(routeItem.controller);
+    controller = new controller_module()
   }
   catch(e) {
     throw 'Unable to load ' + routeItem.controller + ": " + e;
@@ -88,9 +91,8 @@ function getAction(routeItem) {
   return routeItem.action;
 }
 
-
 function registerRoute(application, controller, route, method, action) {
-  console.log('registerRoute(%s) - method:%s - action: %s',route, method, action)
+  console.log('registerRoute(%s) - method:%s - action: %s', route, method, action)
 
   application.route(route)[method](function(req, res, next) {
     controller[action](req, res, next);

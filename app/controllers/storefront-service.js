@@ -1,9 +1,9 @@
 var Promise = require('bluebird')
-var models = require('../../../app/models')
+var models = require('../../app/models')
 
 function StorefrontService() {
     this.listingService = require('./listing-service');
-    this.included_listing_fields = listingService.included_listing_fields
+    this.included_listing_fields = this.listingService.included_listing_fields;
 }
 
 function get_storefront_recommended() {
@@ -91,6 +91,4 @@ StorefrontService.prototype = {
   deleteUpdateStorefront: deleteUpdateStorefront
 };
 
-var storefrontService = new StorefrontService();
-
-module.exports = storefrontService;
+module.exports = StorefrontService;

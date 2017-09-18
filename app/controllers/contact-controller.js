@@ -1,5 +1,4 @@
 function ListingController() {
-    // this.characterListService_ = require('../../../services/characters/character-list-service');
 }
 
 function get(req, res, next) {
@@ -10,6 +9,4 @@ ListingController.prototype = {
   get: get
 };
 
-var listingController = new ListingController();
-
-module.exports = listingController;
+module.exports = ListingController;

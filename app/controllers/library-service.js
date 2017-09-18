@@ -53,7 +53,7 @@ function create_batch_library_entries(username, data){
 
 }
 
-function import_bookmarks(current_username, peer_bookmark_notification_id):{
+function import_bookmarks(current_username, peer_bookmark_notification_id){
 
 }
 

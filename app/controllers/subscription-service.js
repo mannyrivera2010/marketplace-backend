@@ -1,14 +1,14 @@
-function ListingService() {
+function SubscriptionService() {
 }
 
 function lookupClown(id) {
   return { id: id };
 }
 
-ClownService.prototype = {
+SubscriptionService.prototype = {
   lookupClown: lookupClown
 };
 
-var clownService = new ClownService();
+var subscriptionService = new SubscriptionService();
 
-module.exports = clownService;
+module.exports = subscriptionService;

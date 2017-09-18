@@ -1,5 +1,5 @@
 var Serializer = require('sequelize-to-json')
-var models = require('../../../app/models')
+var models = require('../../app/models')
 
 function AgencySerializer() {
 }
