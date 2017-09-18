@@ -18,6 +18,8 @@ function listAgency() {
 // GET /api/agency/{pk}
 // Find an Agency Entry by ID
 function getAgency(agencyId) {
+    if(!agencyId){throw new Error("Validation Failed")}
+
     return new Promise((resolve, reject) => {
         models.ozpcenter_agency
               .findOne({where:{'id': agencyId}})
@@ -35,29 +37,38 @@ function postAgency(agencyObject) {
                 short_name: agencyObject.short_name,
                 icon_id: agencyObject.icon_id})
             .then(result => { return resolve(result) })
-            .catch(result => { return reject(result) })
+            .catch(result => { return reject(result) });
     })
 }
 
 
 // PUT /api/agency/{pk}
 // Update an Agency Entry by ID
-function updateAgency(id) {
+function updateAgency(agencyId) {
+  if(!agencyId){throw new Error("Validation Failed")}
   return { id: id };
 }
 
 
 // PATCH /api/agency/{pk}
 // Update (Partial) an Agency Entry by ID
-function partialUpdateAgency(id) {
+function partialUpdateAgency(agencyId) {
+  if(!agencyId){throw new Error("Validation Failed")}
   return { id: id };
 }
 
 
 // DELETE /api/agency/{pk}
 // Delete an Agency Entry by ID
-function deleteUpdateAgency(id) {
-  return { id: id };
+function deleteAgency(agencyId) {
+  if(!agencyId){throw new Error("Validation Failed")}
+
+  return new Promise((resolve, reject) => {
+      models.ozpcenter_agency
+            .destroy({where:{'id': agencyId}})
+            .then(result => { return resolve(result) })
+            .catch(result => { return reject(result) });
+  })
 }
 
 
@@ -67,7 +78,7 @@ AgencyService.prototype = {
   postAgency: postAgency,
   updateAgency: updateAgency,
   partialUpdateAgency: partialUpdateAgency,
-  deleteUpdateAgency: deleteUpdateAgency
+  deleteAgency: deleteAgency
 };
 
 var agencyService = new AgencyService();

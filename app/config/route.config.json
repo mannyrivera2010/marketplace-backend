@@ -3,46 +3,39 @@
     {
         "route": "/api/listing/",
         "method": "GET",
-        "controller": "../api/listing/listing-controller",
+        "controller": "../controllers/listing-controller",
         "action":"listListing"
     },
     {
       "route": "/api/listing/:listing_id",
       "method": "GET",
-      "controller": "../api/listing/listing-controller",
+      "controller": "../controllers/listing-controller",
       "action":"getListing"
   },
   {
       "route": "/api/agency/",
       "method": "GET",
-      "controller": "../api/agency/agency-controller",
+      "controller": "../controllers/agency-controller",
       "action":"listAgency"
   },
   {
     "route": "/api/agency/:agency_id",
     "method": "GET",
-    "controller": "../api/agency/agency-controller",
+    "controller": "../controllers/agency-controller",
     "action":"getAgency"
     },
     {
+      "route": "/api/agency/:agency_id",
+      "method": "DELETE",
+      "controller": "../controllers/agency-controller",
+      "action":"deleteAgency"
+      },
+    {
       "route": "/api/agency/",
       "method": "POST",
-      "controller": "../api/agency/agency-controller",
+      "controller": "../controllers/agency-controller",
       "action":"postAgency"
     }
 
-  ],
-  "include":[
-      {"directory": "../api/agency/routes.json"},
-      {"directory": "../api/category/routes.json"},
-      {"directory": "../api/contact/routes.json"},
-      {"directory": "../api/image/routes.json"},
-      {"directory": "../api/intent/routes.json"},
-      {"directory": "../api/library/routes.json"},
-      {"directory": "../api/listing/routes.json"},
-      {"directory": "../api/notification/routes.json"},
-      {"directory": "../api/profile/routes.json"},
-      {"directory": "../api/storefront/routes.json"},
-      {"directory": "../api/subscription/routes.json"}
   ]
 }
