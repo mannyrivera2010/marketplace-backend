@@ -1,5 +1,10 @@
-var os = require('os');
 var env = process.env;
+var os = require('os');
+var fs   = require('fs');
+var yaml = require('js-yaml');
+var path = require('path');
+
+var basename  = path.basename(module.filename);
 
 function SettingsConfig() {
     this.settings = {};
@@ -15,18 +20,19 @@ function initializeSettings(instance) {
 function loadEnvironmentConfigFile(instance) {
     nodeEnvironment = env.NODE_ENV || 'debug';
 
-    var configLocation = './settings.config.%s.json'.replace('%s', nodeEnvironment);
+    var configLocation = path.join(__dirname, 'settings.config.%s.yml'.replace('%s', nodeEnvironment));
 
+    // Get document, or throw exception on error
     try {
-        instance.settings = require(configLocation);
+      instance.settings = yaml.safeLoad(fs.readFileSync(configLocation, 'utf8'));
+    } catch (e) {
+       throw 'Unable to parse ' + configLocation + ': ' + e;
     }
-    catch (e) {
-        throw 'Unable to parse "app/config/settings/"' + configLocation + ': ' + e;
-    }
+
 }
 
 function loadServerSettings(instance) {
-    instance.settings.serverName = os.hostname().toLowerCase();
+    instance.settings.serverName = 'localhost' //os.hostname().toLowerCase();
     instance.settings.serverCores = os.cpus().length;
 }
 

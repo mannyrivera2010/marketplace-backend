@@ -4,7 +4,7 @@ var application = express();
 var bodyParser = require('body-parser');
 var routeConfig = require('./route-config');
 var settingsConfig = require('./settings/settings-config');
-var wrap = require('async-middleware').wrap
+// var wrap = require('async-middleware').wrap
 
 function configureWorker(application) {
   configureApplication(application);
@@ -41,7 +41,6 @@ function configureRoutes(application) {
 }
 
 function configureErrorHandler(application) {
-
     application.use(function (err, req, res, next) {
         if (err) {
             switch (err.name) {
@@ -60,7 +59,6 @@ function configureErrorHandler(application) {
         next();
     });
 }
-
 
 
 function startServer(application) {
