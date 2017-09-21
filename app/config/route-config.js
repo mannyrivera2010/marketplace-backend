@@ -17,6 +17,23 @@ function loadRouteConfig() {
   try {
     config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'route.config.yml'), 'utf8'));
 
+    routes_file = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../api/routes.yml'), 'utf8'));
+    routes = routes_file.paths;
+
+
+    for(var route_key in routes) {
+        current_route = routes[route_key];
+        for(var method_key in current_route) {
+            current_method_object = current_route[method_key];
+
+            operation_string = current_method_object['operationId'].split('.')
+            controller_string = operation_string[0]
+            action_string = operation_string[1]
+            console.log(route_key + ' - ' + method_key + ' - ' + controller_string + ' - ' + action_string);
+        }
+
+    }
+
     if(!config.routes || config.routes.length === 0) {
       throw '"routes" not defined';
     }
