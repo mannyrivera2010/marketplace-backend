@@ -3,7 +3,7 @@ var express = require('express');
 var application = express();
 var bodyParser = require('body-parser');
 var routeConfig = require('./route-config');
-var settingsConfig = require('./settings/settings-config');
+var settingsConfig = require('./settings-config');
 // var wrap = require('async-middleware').wrap
 
 function configureWorker(application) {

@@ -3,8 +3,10 @@ masterPort: 8000
 workerPort: 9000
 queueLength: 10
 database:
-  username: ozp_user
-  password: password
-  database: ozp
-  host: 127.0.0.1
-  dialect: postgres
+  # username: ozp_user
+  # password: password
+  # database: ozp
+  # host: 127.0.0.1
+  # dialect: postgres
+  dialect: sqlite
+  storage: db.development.sqlite

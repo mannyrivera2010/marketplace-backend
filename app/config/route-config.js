@@ -1,5 +1,11 @@
-var settingsConfig = require('./settings/settings-config');
+var settingsConfig = require('./settings-config');
 
+var os = require('os');
+var fs   = require('fs');
+var yaml = require('js-yaml');
+var path = require('path');
+
+var basename  = path.basename(module.filename);
 // var controllers = require('../controllers');
 
 function RouteConfig() {
@@ -9,14 +15,14 @@ function loadRouteConfig() {
   var config;
 
   try {
-    config = require('./route.config.json');
+    config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'route.config.yml'), 'utf8'));
 
     if(!config.routes || config.routes.length === 0) {
       throw '"routes" not defined';
     }
-  }
+}
   catch(e) {
-    throw 'Unable to parse "lib/config/route.config.json": ' + e;
+    throw 'Unable to parse "/config/route.config.yml": ' + e;
   }
 
   return config;

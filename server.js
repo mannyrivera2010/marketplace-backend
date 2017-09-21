@@ -1,5 +1,5 @@
 // https://gist.github.com/branneman/8048520
-var settingsConfig = require('./app/config/settings/settings-config');
+var settingsConfig = require('./app/config/settings-config');
 
 if(settingsConfig.settings.clusterEnabled === 1) {
   require('cluster-service').start({
