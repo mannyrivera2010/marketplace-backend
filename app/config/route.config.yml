@@ -28,3 +28,13 @@ routes:
   method: POST
   controller: ../controllers/agency-controller
   action: postAgency
+
+- route: /api/profile/
+  method: GET
+  controller: ../controllers/profile-controller
+  action: listProfile
+
+- route: /api/profile/:profile_id
+  method: GET
+  controller: ../controllers/profile-controller
+  action: getProfile

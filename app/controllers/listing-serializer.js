@@ -67,10 +67,8 @@ const listingScheme = {
         }
       }
     }
-
   }
 };
-
 
 function serialize(listing) {
     return new Serializer(models.ozpcenter_listing, listingScheme).serialize(listing);
@@ -80,11 +78,9 @@ function serializeMany(listings) {
     return Serializer.serializeMany(listings, models.ozpcenter_listing, listingScheme);
 }
 
-
 ListingSerializer.prototype = {
   serialize: serialize,
   serializeMany: serializeMany,
-
 };
 
 var listingSerializer = new ListingSerializer();

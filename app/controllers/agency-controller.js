@@ -17,35 +17,6 @@ function listAgency(req, res, next) {
   )
 }
 
-// 
-//
-// function listAgencyPromise(req, res, next) {
-//   return new Promise((resolve, reject) => {
-//
-//     this.agencyService.listAgency().then(results =>{
-//         var serialized = this.agencySerializer.serializeMany(results)
-//
-//         res.status(200).json(serialized)
-//     }).catch(SequelizeBaseError, error => {
-//         res.status(500).json(error)
-//     }).catch(Error, error => {
-//         res.status(500).json({"error":error.message})}
-//     )
-//
-//
-//
-//
-//             return resolve(result)
-//
-//             return reject(result)
-//
-//
-//   })
-// }
-
-
-
-
 // agency/:agency_id
 function getAgency(req, res, next) {
   agency_id = Number(req.params['agency_id'])

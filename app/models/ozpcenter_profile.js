@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('ozpcenter_profile', {
+  var Profile = sequelize.define('ozpcenter_profile', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -30,7 +30,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     access_control: {
       type: DataTypes.STRING(16384),
-      allowNull: false
+      allowNull: false,
+
+      get() {
+          const access_control_string = this.getDataValue('access_control');
+          return JSON.parse(access_control_string)
+      },
+      set(access_control_object) {
+          access_control_string = JSON.stringify(access_control_object)
+          this.setDataValue('access_control', access_control_string);
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -68,4 +77,10 @@ module.exports = function(sequelize, DataTypes) {
     tableName: 'ozpcenter_profile',
     timestamps: false
   });
+
+  Profile.associate = function (models) {
+      Profile.belongsTo(models.auth_user, {foreignKey:'user_id',as:'user'});
+  }
+
+  return Profile;
 };

@@ -5,6 +5,8 @@ var fs   = require('fs');
 var yaml = require('js-yaml');
 var path = require('path');
 
+var passport = require('passport');
+
 var basename  = path.basename(module.filename);
 // var controllers = require('../controllers');
 
@@ -29,7 +31,7 @@ function loadRouteConfig() {
             operation_string = current_method_object['operationId'].split('.')
             controller_string = operation_string[0]
             action_string = operation_string[1]
-            console.log(route_key + ' - ' + method_key + ' - ' + controller_string + ' - ' + action_string);
+            console.log('> ' + route_key + ' - ' + method_key + ' - ' + controller_string + ' - ' + action_string);
         }
 
     }
@@ -117,14 +119,16 @@ function getAction(routeItem) {
 function registerRoute(application, controller, route, method, action) {
   console.log('registerRoute(%s) - method:%s - action: %s', route, method, action)
 
-  application.route(route)[method](function(req, res, next) {
+  application.route(route)[method](passport.authenticate('basic', {session:false}),
+  function(req, res, next) {
     controller[action](req, res, next);
   });
 }
 
 function createConfigRoute(application) {
-  application.route('/config').get(function(req, res, next) {
-    res.status(200).json(settingsConfig.settings);
+  application.route('/config').get(passport.authenticate('basic', {session:false}),
+    function(req, res, next) {
+      res.status(200).json(settingsConfig.settings);
   });
 }
 

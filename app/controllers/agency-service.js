@@ -81,4 +81,6 @@ AgencyService.prototype = {
   deleteAgency: deleteAgency
 };
 
-module.exports = AgencyService;
+var agencyService = new AgencyService();
+
+module.exports = agencyService;

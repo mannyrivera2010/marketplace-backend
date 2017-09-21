@@ -4291,18 +4291,18 @@ paths:
   #     description: No response was specified
   #     operationId: Pending_Notification_POST
   #     summary: APIView for getting all PendingNotification entries for all users
-  # /api/profile/:
-  #   get:
-  #     responses:
-  #       200:
-  #         description: No response was specified
-  #         schema:
-  #           $ref: '#/definitions/Profile'
-  #     tags:
-  #       - api
-  #     description: No response was specified
-  #     operationId: Profile_list
-  #     summary: ModelViewSet for getting all profiles
+  /api/profile/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: profile-controller.listProfile
+      summary: ModelViewSet for getting all profiles
   #   post:
   #     parameters:
   #       - in: formData
