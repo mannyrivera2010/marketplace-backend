@@ -1,0 +1,30 @@
+routes:
+- route: /api/listing/
+  method: GET
+  controller: ../controllers/listing-controller
+  action: listListing
+
+- route: /api/listing/:listing_id
+  method: GET
+  controller: ../controllers/listing-controller
+  action: getListing
+
+- route: /api/agency/
+  method: GET
+  controller: ../controllers/agency-controller
+  action: listAgency
+
+- route: /api/agency/:agency_id
+  method: GET
+  controller: ../controllers/agency-controller
+  action: getAgency
+
+- route: /api/agency/:agency_id
+  method: DELETE
+  controller: ../controllers/agency-controller
+  action: deleteAgency
+
+- route: /api/agency/
+  method: POST
+  controller: ../controllers/agency-controller
+  action: postAgency
