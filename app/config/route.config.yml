@@ -1,40 +1,40 @@
 routes:
 - route: /api/listing/
   method: GET
-  controller: ../controllers/listing-controller
+  controller: ../api/listing/listing-controller
   action: listListing
 
 - route: /api/listing/:listing_id
   method: GET
-  controller: ../controllers/listing-controller
-  action: getListing
+  controller: ../api/listing/listing-controller
+  action: retrieve
 
 - route: /api/agency/
   method: GET
-  controller: ../controllers/agency-controller
-  action: listAgency
+  controller: ../api/agency/agency-controller
+  action: list
 
 - route: /api/agency/:agency_id
   method: GET
-  controller: ../controllers/agency-controller
-  action: getAgency
+  controller: ../api/agency/agency-controller
+  action: retrieve
 
 - route: /api/agency/:agency_id
   method: DELETE
-  controller: ../controllers/agency-controller
-  action: deleteAgency
+  controller: ../api/agency/agency-controller
+  action: destroy
 
 - route: /api/agency/
   method: POST
-  controller: ../controllers/agency-controller
-  action: postAgency
+  controller: ../api/agency/agency-controller
+  action: create
 
 - route: /api/profile/
   method: GET
-  controller: ../controllers/profile-controller
-  action: listProfile
+  controller: ../api/profile/profile-controller
+  action: list
 
 - route: /api/profile/:profile_id
   method: GET
-  controller: ../controllers/profile-controller
-  action: getProfile
+  controller: ../api/profile/profile-controller
+  action: retrieve

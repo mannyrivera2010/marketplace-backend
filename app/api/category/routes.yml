@@ -1,0 +1,130 @@
+
+paths:
+  /api/category/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Category'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Category_list
+      summary: ModelViewSet for getting all category entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Category'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Category_create
+      summary: ModelViewSet for getting all category entries for all users
+  /api/category/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Category'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Category_destroy
+      summary: Validate to make sure that no listing has this category
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Category'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Category_retrieve
+      summary: ModelViewSet for getting all category entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Category'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Category_partial_update
+      summary: ModelViewSet for getting all category entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Category'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Category_update
+      summary: ModelViewSet for getting all category entries for all users
+
+definitions:
+  Category:
+    properties:
+      description:
+        type: string
+      id:
+        format: int32
+        type: integer
+      title:
+        type: string
+    required:
+      - id
+      - title
+      - description

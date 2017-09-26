@@ -1,0 +1,284 @@
+
+paths:
+
+  /api/subscription/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Subscription_list
+      summary: ModelViewSet for getting all Subscription entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: target_profile
+          required: false
+          type: string
+        - enum:
+            - category
+            - tag
+          format: string
+          in: formData
+          name: entity_type
+          required: false
+          type: choice
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Subscription_create
+      summary: ModelViewSet for getting all Subscription entries for all users
+  /api/subscription/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Subscription_destroy
+      summary: ModelViewSet for getting all Subscription entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Subscription_retrieve
+      summary: ModelViewSet for getting all Subscription entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: target_profile
+          required: false
+          type: string
+        - enum:
+            - category
+            - tag
+          format: string
+          in: formData
+          name: entity_type
+          required: false
+          type: choice
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Subscription_partial_update
+      summary: ModelViewSet for getting all Subscription entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: target_profile
+          required: false
+          type: string
+        - enum:
+            - category
+            - tag
+          format: string
+          in: formData
+          name: entity_type
+          required: false
+          type: choice
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Subscription_update
+      summary: ModelViewSet for getting all Subscription entries for all users
+      
+  /api/self/subscription/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Subscription_list
+      summary: ModelViewSet for getting all UserSubscription entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: target_profile
+          required: false
+          type: string
+        - enum:
+            - category
+            - tag
+          format: string
+          in: formData
+          name: entity_type
+          required: false
+          type: choice
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Subscription_create
+      summary: ModelViewSet for getting all UserSubscription entries for all users
+  /api/self/subscription/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Subscription_destroy
+      summary: Dismiss subscription
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Subscription_retrieve
+      summary: ModelViewSet for getting all UserSubscription entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: target_profile
+          required: false
+          type: string
+        - enum:
+            - category
+            - tag
+          format: string
+          in: formData
+          name: entity_type
+          required: false
+          type: choice
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Subscription_partial_update
+      summary: ModelViewSet for getting all UserSubscription entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: target_profile
+          required: false
+          type: string
+        - enum:
+            - category
+            - tag
+          format: string
+          in: formData
+          name: entity_type
+          required: false
+          type: choice
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Subscription'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Subscription_update
+      summary: ModelViewSet for getting all UserSubscription entries for all users

@@ -22,7 +22,6 @@ function loadRouteConfig() {
     routes_file = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '../api/routes.yml'), 'utf8'));
     routes = routes_file.paths;
 
-
     for(var route_key in routes) {
         current_route = routes[route_key];
         for(var method_key in current_route) {

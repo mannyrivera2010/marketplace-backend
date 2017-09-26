@@ -1,0 +1,265 @@
+paths:
+  /api/library/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Library'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Library_list
+      summary: ModelViewSet for getting all library entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: folder
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: position
+          required: false
+          type: integer
+        - in: formData
+          name: owner
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Library'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Library_create
+      summary: ModelViewSet for getting all library entries for all users
+  /api/library/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Library'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Library_destroy
+      summary: ModelViewSet for getting all library entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Library'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Library_retrieve
+      summary: ModelViewSet for getting all library entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: folder
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: position
+          required: false
+          type: integer
+        - in: formData
+          name: owner
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Library'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Library_partial_update
+      summary: ModelViewSet for getting all library entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: folder
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: position
+          required: false
+          type: integer
+        - in: formData
+          name: owner
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Library'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Library_update
+      summary: ModelViewSet for getting all library entries for all users
+
+  /api/self/library/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/UserLibrary'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_list
+      summary: The current user's bookmarked listings
+    post:
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            format: string
+            type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_create
+      summary: Bookmark a Listing for the current user
+  /api/self/library/create_batch/:
+    post:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_create_batch
+      summary: Import Bookmarks
+  /api/self/library/import_bookmarks/:
+    post:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_import_bookmarks
+      summary: Import Bookmarks
+  /api/self/library/update_all/:
+    put:
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            format: string
+            type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_update_all
+      summary: Update ALL of the user's library entries
+  /api/self/library/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_destroy
+      summary: Remove a Listing from the current user's library (unbookmark)
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_retrieve
+      summary: Retrieve by library id (not listing id)
+  /api/self/library/{pk}/delete_folder/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Library_delete_folder
+      summary: Remove a Listing from the current user's library (unbookmark)

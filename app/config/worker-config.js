@@ -57,7 +57,6 @@ function configureErrorHandler(application) {
     });
 }
 
-
 function startServer(application) {
   var server = http.createServer(application);
 

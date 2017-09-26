@@ -1,0 +1,308 @@
+paths:
+  /api/contact/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Contact'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_list
+      summary: ModelViewSet for getting all contacts for a given listing
+    post:
+      parameters:
+        - in: formData
+          name: contact_type
+          required: true
+          type: string
+        - in: formData
+          name: secure_phone
+          required: false
+          type: string
+        - in: formData
+          name: unsecure_phone
+          required: false
+          type: string
+        - in: formData
+          name: email
+          required: true
+          type: string
+        - in: formData
+          name: name
+          required: true
+          type: string
+        - in: formData
+          name: organization
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Contact'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_create
+      summary: ModelViewSet for getting all contacts for a given listing
+  /api/contact/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Contact'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_destroy
+      summary: ModelViewSet for getting all contacts for a given listing
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Contact'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_retrieve
+      summary: ModelViewSet for getting all contacts for a given listing
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: contact_type
+          required: false
+          type: string
+        - in: formData
+          name: secure_phone
+          required: false
+          type: string
+        - in: formData
+          name: unsecure_phone
+          required: false
+          type: string
+        - in: formData
+          name: email
+          required: false
+          type: string
+        - in: formData
+          name: name
+          required: false
+          type: string
+        - in: formData
+          name: organization
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Contact'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_partial_update
+      summary: ModelViewSet for getting all contacts for a given listing
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: contact_type
+          required: true
+          type: string
+        - in: formData
+          name: secure_phone
+          required: false
+          type: string
+        - in: formData
+          name: unsecure_phone
+          required: false
+          type: string
+        - in: formData
+          name: email
+          required: true
+          type: string
+        - in: formData
+          name: name
+          required: true
+          type: string
+        - in: formData
+          name: organization
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Contact'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_update
+      summary: ModelViewSet for getting all contacts for a given listing
+  /api/contact_type/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ContactType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_Type_list
+      summary: ModelViewSet for getting all ContactType entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: name
+          required: true
+          type: string
+        - in: formData
+          name: required
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ContactType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_Type_create
+      summary: ModelViewSet for getting all ContactType entries for all users
+  /api/contact_type/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ContactType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_Type_destroy
+      summary: ModelViewSet for getting all ContactType entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ContactType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_Type_retrieve
+      summary: ModelViewSet for getting all ContactType entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: name
+          required: false
+          type: string
+        - in: formData
+          name: required
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ContactType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_Type_partial_update
+      summary: ModelViewSet for getting all ContactType entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: name
+          required: true
+          type: string
+        - in: formData
+          name: required
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ContactType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Contact_Type_update
+      summary: ModelViewSet for getting all ContactType entries for all users
+
+definitions:
+   Contact:
+     properties:
+       contact_type:
+         $ref: '#/definitions/ContactType'
+       email:
+         type: string
+       id:
+         format: int32
+         type: integer
+       name:
+         type: string
+       organization:
+         type: string
+       secure_phone:
+         type: string
+       unsecure_phone:
+         type: string
+     required:
+       - id
+       - contact_type
+       - secure_phone
+       - unsecure_phone
+       - email
+       - name
+       - organization
+   ContactType:
+     properties:
+       name:
+         type: string
+     required:
+       - name

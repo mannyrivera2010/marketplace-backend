@@ -1,0 +1,127 @@
+
+paths:
+  /api/agency/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Agency'
+      tags:
+        - api
+      description: No response was specified
+      operationId: agency-controller.listAgency
+      summary: Getting all agency entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - in: formData
+          name: short_name
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Agency'
+      tags:
+        - api
+      description: No response was specified
+      operationId: agency-controller.postAgency
+      summary: ModelViewSet for getting all agency entries for all users
+  /api/agency/{pk}/:
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Agency'
+      tags:
+        - api
+      description: No response was specified
+      operationId: agency-controller.retrieve
+      summary: ModelViewSet for getting all agency entries for all user
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Agency'
+      tags:
+        - api
+      description: No response was specified
+      operationId: agency-controller.deleteAgency
+      summary: ModelViewSet for getting all agency entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - in: formData
+          name: short_name
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Agency'
+      tags:
+        - api
+      description: No response was specified
+      operationId: agency-controller.PartialUpdateAgency
+      summary: ModelViewSet for getting all agency entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - in: formData
+          name: short_name
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Agency'
+      tags:
+        - api
+      description: No response was specified
+      operationId: agency-controller.UpdateAgency
+      summary: ModelViewSet for getting all agency entries for all users
+
+
+definitions:
+  Agency:
+    properties:
+      short_name:
+        type: string
+      title:
+        type: string
+    required:
+      - short_name
+      - title

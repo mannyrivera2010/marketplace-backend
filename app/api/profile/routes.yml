@@ -1,0 +1,1132 @@
+
+paths:
+  /api/user/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_list
+      summary: ModelViewSet for getting all Users
+    post:
+      parameters:
+        - description: No response was specified
+          in: formData
+          name: username
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: email
+          required: false
+          type: email
+        - in: formData
+          name: groups
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_create
+      summary: ModelViewSet for getting all Users
+  /api/user/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_destroy
+      summary: ModelViewSet for getting all Users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_retrieve
+      summary: ModelViewSet for getting all Users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - description: No response was specified
+          in: formData
+          name: username
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: email
+          required: false
+          type: email
+        - in: formData
+          name: groups
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_partial_update
+      summary: ModelViewSet for getting all Users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - description: No response was specified
+          in: formData
+          name: username
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: email
+          required: false
+          type: email
+        - in: formData
+          name: groups
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/User'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_update
+      summary: ModelViewSet for getting all Users
+  /api/self/profile/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Current_User_retrieve
+      summary: A simple ViewSet for listing or retrieving users
+    patch:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Current_User_update
+      summary: A simple ViewSet for listing or retrieving users
+    put:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Current_User_update
+      summary: A simple ViewSet for listing or retrieving users
+  /api/profile/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: profile-controller.listProfile
+      summary: ModelViewSet for getting all profiles
+    post:
+      parameters:
+        - in: formData
+          name: display_name
+          required: true
+          type: string
+        - in: formData
+          name: organizations
+          required: true
+          type: string
+        - in: formData
+          name: stewarded_organizations
+          required: true
+          type: string
+        - in: formData
+          name: user
+          required: true
+          type: string
+        - in: formData
+          name: dn
+          required: true
+          type: string
+        - in: formData
+          name: center_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: hud_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: webtop_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: email_notification_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: listing_notification_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: subscription_notification_flag
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_create
+      summary: ModelViewSet for getting all profiles
+  /api/profile/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_destroy
+      summary: ModelViewSet for getting all profiles
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_retrieve
+      summary: ModelViewSet for getting all profiles
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: display_name
+          required: false
+          type: string
+        - in: formData
+          name: organizations
+          required: false
+          type: string
+        - in: formData
+          name: stewarded_organizations
+          required: false
+          type: string
+        - in: formData
+          name: user
+          required: false
+          type: string
+        - in: formData
+          name: dn
+          required: false
+          type: string
+        - in: formData
+          name: center_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: hud_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: webtop_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: email_notification_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: listing_notification_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: subscription_notification_flag
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_partial_update
+      summary: ModelViewSet for getting all profiles
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: display_name
+          required: true
+          type: string
+        - in: formData
+          name: organizations
+          required: true
+          type: string
+        - in: formData
+          name: stewarded_organizations
+          required: true
+          type: string
+        - in: formData
+          name: user
+          required: true
+          type: string
+        - in: formData
+          name: dn
+          required: true
+          type: string
+        - in: formData
+          name: center_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: hud_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: webtop_tour_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: email_notification_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: listing_notification_flag
+          required: false
+          type: boolean
+        - in: formData
+          name: subscription_notification_flag
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Profile'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_update
+      summary: ModelViewSet for getting all profiles
+  /api/profile/{profile_pk}/listing/:
+    get:
+      parameters:
+        - in: path
+          name: profile_pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_Listing_list
+      summary: Retrieves all listings for a specific profile that they own
+    post:
+      parameters:
+        - in: path
+          name: profile_pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_Listing_create
+      summary: This method is not supported
+  /api/profile/{profile_pk}/listing/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: profile_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_Listing_destroy
+      summary: This method is not supported
+    get:
+      parameters:
+        - in: path
+          name: profile_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_Listing_retrieve
+      summary: Retrieves a specific listing for a specific profile that they own
+    patch:
+      parameters:
+        - in: path
+          name: profile_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_Listing_partial_update
+      summary: This method is not supported
+    put:
+      parameters:
+        - in: path
+          name: profile_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Profile_Listing_update
+      summary: This method is not supported
+
+    /api/group/:
+      get:
+        responses:
+          200:
+            description: No response was specified
+            schema:
+              $ref: ' /definitions/Group'
+        tags:
+          - api
+        description: No response was specified
+        operationId: Group_list
+        summary: ModelViewSet for getting all groups
+      post:
+        parameters:
+          - in: formData
+            name: name
+            required: true
+            type: string
+        responses:
+          200:
+            description: No response was specified
+            schema:
+              $ref: ' /definitions/Group'
+        tags:
+          - api
+        description: No response was specified
+        operationId: Group_create
+        summary: ModelViewSet for getting all groups
+    /api/group/{pk}/:
+      delete:
+        parameters:
+          - in: path
+            name: pk
+            required: true
+            type: string
+        responses:
+          200:
+            description: No response was specified
+            schema:
+              $ref: ' /definitions/Group'
+        tags:
+          - api
+        description: No response was specified
+        operationId: Group_destroy
+        summary: ModelViewSet for getting all groups
+      get:
+        parameters:
+          - in: path
+            name: pk
+            required: true
+            type: string
+        responses:
+          200:
+            description: No response was specified
+            schema:
+              $ref: ' /definitions/Group'
+        tags:
+          - api
+        description: No response was specified
+        operationId: Group_retrieve
+        summary: ModelViewSet for getting all groups
+      patch:
+        parameters:
+          - in: path
+            name: pk
+            required: true
+            type: string
+          - in: formData
+            name: name
+            required: false
+            type: string
+        responses:
+          200:
+            description: No response was specified
+            schema:
+              $ref: ' /definitions/Group'
+        tags:
+          - api
+        description: No response was specified
+        operationId: Group_partial_update
+        summary: ModelViewSet for getting all groups
+      put:
+        parameters:
+          - in: path
+            name: pk
+            required: true
+            type: string
+          - in: formData
+            name: name
+            required: true
+            type: string
+        responses:
+          200:
+            description: No response was specified
+            schema:
+              $ref: ' /definitions/Group'
+        tags:
+          - api
+        description: No response was specified
+        operationId: Group_update
+        summary: ModelViewSet for getting all groups

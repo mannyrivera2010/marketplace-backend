@@ -1,0 +1,3634 @@
+paths:
+  /api/listing/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: listing-controller.listListing
+      summary: Get all listings this user can see
+    post:
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            format: string
+            type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_create
+      summary: Save a new Listing - only title is required
+  /api/listing/{pk}/:
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: listing-controller.getListing
+      summary: Get a Listing by id
+  delete:
+    parameters:
+      - in: path
+        name: pk
+        required: true
+        type: string
+    responses:
+      200:
+        description: No response was specified
+        schema:
+          $ref: '#/definitions/Listing'
+    tags:
+      - api
+    description: No response was specified
+    operationId: Listing_destroy
+    summary: Delete a listing
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_partial_update
+      summary: 'TODO: Probably don''t use this (PATCH)'
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_update
+      summary: Update a Listing
+  /{listing_pk}/activity/:
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activity_list
+      summary: ListingActivity endpoints are read-only
+    post:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activity_create
+      summary: ListingActivity endpoints are read-only
+  /api/listing/{listing_pk}/activity/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activity_destroy
+      summary: ListingActivity endpoints are read-only
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activity_retrieve
+      summary: ListingActivity endpoints are read-only
+    patch:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: false
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: change_details
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activity_partial_update
+      summary: ListingActivity endpoints are read-only
+    put:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activity_update
+      summary: ListingActivity endpoints are read-only
+  /api/listing/{listing_pk}/rejection/:
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Rejection_list
+      summary: ModelViewSet for getting all Listing Rejections
+    post:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Rejection_create
+      summary: ModelViewSet for getting all Listing Rejections
+  /api/listing/{listing_pk}/rejection/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Rejection_destroy
+      summary: ModelViewSet for getting all Listing Rejections
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Rejection_retrieve
+      summary: ModelViewSet for getting all Listing Rejections
+    patch:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: false
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: change_details
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Rejection_partial_update
+      summary: ModelViewSet for getting all Listing Rejections
+    put:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Rejection_update
+      summary: ModelViewSet for getting all Listing Rejections
+  /api/listing/{listing_pk}/review/:
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Review_list
+      summary: Reviews for a given listing
+    post:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - format: int32
+          in: formData
+          name: rate
+          required: true
+          type: integer
+        - in: formData
+          name: text
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: review_parent
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Review_create
+      summary: Create a new review
+  /api/listing/{listing_pk}/review/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Review_destroy
+      summary: Reviews for a given listing
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Review_retrieve
+      summary: Reviews for a given listing
+    patch:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: rate
+          required: false
+          type: integer
+        - in: formData
+          name: text
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: review_parent
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Review_partial_update
+      summary: Reviews for a given listing
+    put:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - format: int32
+          in: formData
+          name: rate
+          required: true
+          type: integer
+        - in: formData
+          name: text
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: review_parent
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Review'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Review_update
+      summary: Update an existing review
+  /api/listing/{listing_pk}/similar/:
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Similar_list
+      summary: Similar Apps for a given listing
+    post:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Similar_create
+      summary: Similar Apps for a given listing
+  /api/listing/{listing_pk}/similar/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Similar_destroy
+      summary: Similar Apps for a given listing
+    get:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Similar_retrieve
+      summary: Similar Apps for a given listing
+    patch:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Similar_partial_update
+      summary: Similar Apps for a given listing
+    put:
+      parameters:
+        - in: path
+          name: listing_pk
+          required: true
+          type: string
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Similar_update
+      summary: Similar Apps for a given listing
+  /api/listings/activity/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activities_list
+      summary: ListingActivity endpoints are read-only
+    post:
+      parameters:
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activities_create
+      summary: ListingActivity endpoints are read-only
+  /api/listings/activity/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activities_destroy
+      summary: ListingActivity endpoints are read-only
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activities_retrieve
+      summary: ListingActivity endpoints are read-only
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: false
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: change_details
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activities_partial_update
+      summary: ListingActivity endpoints are read-only
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Activities_update
+      summary: ListingActivity endpoints are read-only
+  /api/listings/essearch/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_list
+      summary: Elasticsearch Listing Search Viewset
+    post:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_create
+      summary: This method is not supported
+  /api/listings/essearch/suggest/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_suggest
+      summary: Elasticsearch Listing Search Viewset
+  /api/listings/essearch/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_destroy
+      summary: This method is not supported
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_retrieve
+      summary: This method is not supported
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_partial_update
+      summary: This method is not supported
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Elasticsearch_Listing_Search_update
+      summary: This method is not supported
+  /api/listings/search/:
+    get:
+      parameters:
+        - description: No response was specified
+          format: string
+          in: query
+          name: search
+          required: false
+          type: string
+        - description: No response was specified
+          in: query
+          items:
+            format: string
+            type: string
+          name: category
+          required: false
+          type: array
+        - description: No response was specified
+          format: string
+          in: query
+          name: agency
+          required: false
+          type: string
+        - description: No response was specified
+          format: string
+          in: query
+          name: type
+          required: false
+          type: string
+        - description: No response was specified
+          format: string
+          in: query
+          name: limit
+          required: false
+          type: string
+        - description: No response was specified
+          format: string
+          in: query
+          name: offset
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+        401:
+          description: No response was specified
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Search_list
+    post:
+      parameters:
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Search_create
+      summary: Search for listings
+  /api/listings/search/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Search_destroy
+      summary: Search for listings
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Search_retrieve
+      summary: Search for listings
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Search_partial_update
+      summary: Search for listings
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Search_update
+      summary: Search for listings
+  /api/listingtype/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Type_list
+      summary: Listing Types
+    post:
+      parameters:
+        - in: formData
+          name: title
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Type_create
+      summary: Listing Types
+  /api/listingtype/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Type_destroy
+      summary: Listing Types
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Type_retrieve
+      summary: Listing Types
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Type_partial_update
+      summary: Listing Types
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_Type_update
+      summary: Listing Types
+
+
+
+  /api/self/listing/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_list
+      summary: Listing Types
+    post:
+      parameters:
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_create
+      summary: Listing Types
+  /api/self/listing/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_destroy
+      summary: Listing Types
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_retrieve
+      summary: Listing Types
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_partial_update
+      summary: Listing Types
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: screenshots
+          required: false
+          type: string
+        - in: formData
+          name: doc_urls
+          required: false
+          type: string
+        - in: formData
+          name: owners
+          required: false
+          type: string
+        - in: formData
+          name: categories
+          required: false
+          type: string
+        - in: formData
+          name: tags
+          required: false
+          type: string
+        - in: formData
+          name: contacts
+          required: false
+          type: string
+        - in: formData
+          name: intents
+          required: false
+          type: string
+        - in: formData
+          name: small_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_icon
+          required: false
+          type: string
+        - in: formData
+          name: banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: large_banner_icon
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - in: formData
+          name: listing_type
+          required: false
+          type: string
+        - in: formData
+          name: title
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: approved_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: edited_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: launch_url
+          required: false
+          type: string
+        - in: formData
+          name: version_name
+          required: false
+          type: string
+        - in: formData
+          name: unique_name
+          required: false
+          type: string
+        - in: formData
+          name: what_is_new
+          required: false
+          type: string
+        - in: formData
+          name: description_short
+          required: false
+          type: string
+        - in: formData
+          name: requirements
+          required: false
+          type: string
+        - enum:
+            - IN_PROGRESS
+            - PENDING
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: approval_status
+          required: false
+          type: choice
+        - in: formData
+          name: is_enabled
+          required: false
+          type: boolean
+        - in: formData
+          name: is_featured
+          required: false
+          type: boolean
+        - in: formData
+          name: is_deleted
+          required: false
+          type: boolean
+        - format: string
+          in: formData
+          name: avg_rate
+          required: false
+          type: number
+        - format: int32
+          in: formData
+          name: total_votes
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate5
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate4
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate3
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate2
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_rate1
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_reviews
+          required: false
+          type: integer
+        - format: int32
+          in: formData
+          name: total_review_responses
+          required: false
+          type: integer
+        - in: formData
+          name: iframe_compatible
+          required: false
+          type: boolean
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+        - in: formData
+          name: is_private
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Listing'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_update
+      summary: Listing Types
+  /api/self/listings/activity/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_Activities_list
+      summary: ListingUserActivitiesViewSet endpoints are read-only
+    post:
+      parameters:
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_Activities_create
+      summary: ListingUserActivitiesViewSet endpoints are read-only
+  /api/self/listings/activity/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_Activities_destroy
+      summary: ListingUserActivitiesViewSet endpoints are read-only
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_Activities_retrieve
+      summary: ListingUserActivitiesViewSet endpoints are read-only
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: false
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: change_details
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_Activities_partial_update
+      summary: ListingUserActivitiesViewSet endpoints are read-only
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - CREATED
+            - MODIFIED
+            - SUBMITTED
+            - APPROVED_ORG
+            - APPROVED
+            - REJECTED
+            - ENABLED
+            - DISABLED
+            - DELETED
+            - REVIEW_EDITED
+            - REVIEW_DELETED
+            - PENDING_DELETION
+          format: string
+          in: formData
+          name: action
+          required: true
+          type: choice
+        - format: string
+          in: formData
+          name: activity_date
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: true
+          type: string
+        - in: formData
+          name: listing
+          required: true
+          type: string
+        - in: formData
+          name: change_details
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/ListingActivity'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Listing_User_Activities_update
+      summary: ListingUserActivitiesViewSet endpoints are read-only

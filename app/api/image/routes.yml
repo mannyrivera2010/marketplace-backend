@@ -1,0 +1,369 @@
+paths:
+
+  /api/screenshot/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Screenshot'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Screenshot_list
+      summary: Listing Types
+    post:
+      parameters:
+        - format: int32
+          in: formData
+          name: order
+          required: false
+          type: integer
+        - in: formData
+          name: small_image
+          required: true
+          type: string
+        - in: formData
+          name: large_image
+          required: true
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Screenshot'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Screenshot_create
+      summary: Listing Types
+  /api/screenshot/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Screenshot'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Screenshot_destroy
+      summary: Listing Types
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Screenshot'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Screenshot_retrieve
+      summary: Listing Types
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - format: int32
+          in: formData
+          name: order
+          required: false
+          type: integer
+        - in: formData
+          name: small_image
+          required: false
+          type: string
+        - in: formData
+          name: large_image
+          required: false
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Screenshot'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Screenshot_partial_update
+      summary: Listing Types
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - format: int32
+          in: formData
+          name: order
+          required: false
+          type: integer
+        - in: formData
+          name: small_image
+          required: true
+          type: string
+        - in: formData
+          name: large_image
+          required: true
+          type: string
+        - in: formData
+          name: description
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Screenshot'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Screenshot_update
+      summary: Listing Types
+
+  /api/image/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Image'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_list
+      summary: ModelViewSet for getting all Image entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: security_marking
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Image'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_create
+      summary: Upload an image
+  /api/image/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Image'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_destroy
+      summary: ModelViewSet for getting all Image entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Image'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_retrieve
+      summary: 'Return an image, enforcing access control'
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: security_marking
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Image'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_partial_update
+      summary: ModelViewSet for getting all Image entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: security_marking
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Image'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_update
+      summary: ModelViewSet for getting all Image entries for all users
+  /api/imagetype/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ImageType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_Type_list
+      summary: ModelViewSet for getting all ImageType entries for all users
+    post:
+      parameters:
+        - enum:
+            - small_icon
+            - large_icon
+            - banner_icon
+            - large_banner_icon
+            - small_screenshot
+            - large_screenshot
+          format: string
+          in: formData
+          name: name
+          required: true
+          type: choice
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ImageType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_Type_create
+      summary: ModelViewSet for getting all ImageType entries for all users
+  /api/imagetype/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ImageType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_Type_destroy
+      summary: ModelViewSet for getting all ImageType entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ImageType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_Type_retrieve
+      summary: ModelViewSet for getting all ImageType entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - small_icon
+            - large_icon
+            - banner_icon
+            - large_banner_icon
+            - small_screenshot
+            - large_screenshot
+          format: string
+          in: formData
+          name: name
+          required: false
+          type: choice
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ImageType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_Type_partial_update
+      summary: ModelViewSet for getting all ImageType entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - enum:
+            - small_icon
+            - large_icon
+            - banner_icon
+            - large_banner_icon
+            - small_screenshot
+            - large_screenshot
+          format: string
+          in: formData
+          name: name
+          required: true
+          type: choice
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/ImageType'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Image_Type_update
+      summary: ModelViewSet for getting all ImageType entries for all users

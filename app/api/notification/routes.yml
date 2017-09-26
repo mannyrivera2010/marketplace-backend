@@ -1,0 +1,593 @@
+paths:
+
+  /api/notification/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Notification_list
+      summary: ModelViewSet for getting all Notification entries for all users
+    post:
+      parameters:
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: true
+          type: string
+        - enum:
+            - system
+            - agency
+            - agency_bookmark
+            - listing
+            - peer
+            - peer_bookmark
+            - subscription
+          format: string
+          in: formData
+          name: notification_type
+          required: false
+          type: choice
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Notification_create
+      summary: ModelViewSet for getting all Notification entries for all users
+  /api/notification/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Notification_destroy
+      summary: ModelViewSet for getting all Notification entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Notification_retrieve
+      summary: ModelViewSet for getting all Notification entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: false
+          type: string
+        - enum:
+            - system
+            - agency
+            - agency_bookmark
+            - listing
+            - peer
+            - peer_bookmark
+            - subscription
+          format: string
+          in: formData
+          name: notification_type
+          required: false
+          type: choice
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Notification_partial_update
+      summary: ModelViewSet for getting all Notification entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: true
+          type: string
+        - enum:
+            - system
+            - agency
+            - agency_bookmark
+            - listing
+            - peer
+            - peer_bookmark
+            - subscription
+          format: string
+          in: formData
+          name: notification_type
+          required: false
+          type: choice
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Notification_update
+      summary: Update is used only change the expiration date of the message
+  /api/notifications/expired/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Expired_Notification_GET
+      summary: APIView for getting all PendingNotification entries for all users
+    post:
+      parameters:
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: true
+          type: string
+        - enum:
+            - system
+            - agency
+            - agency_bookmark
+            - listing
+            - peer
+            - peer_bookmark
+            - subscription
+          format: string
+          in: formData
+          name: notification_type
+          required: false
+          type: choice
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Expired_Notification_POST
+      summary: APIView for getting all PendingNotification entries for all users
+  /api/notifications/pending/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Pending_Notification_GET
+      summary: APIView for getting all PendingNotification entries for all users
+    post:
+      parameters:
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: true
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: true
+          type: string
+        - enum:
+            - system
+            - agency
+            - agency_bookmark
+            - listing
+            - peer
+            - peer_bookmark
+            - subscription
+          format: string
+          in: formData
+          name: notification_type
+          required: false
+          type: choice
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Notification'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Pending_Notification_POST
+      summary: APIView for getting all PendingNotification entries for all users
+
+  /api/self/notification/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/NotificationMailBox'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Notification_list
+      summary: ModelViewSet for getting all UserNotification entries for all users
+    post:
+      parameters:
+        - format: int32
+          in: formData
+          name: notification_id
+          required: false
+          type: integer
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: false
+          type: string
+        - in: formData
+          name: notification_type
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+        - in: formData
+          name: read_status
+          required: false
+          type: boolean
+        - in: formData
+          name: acknowledged_status
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/NotificationMailBox'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Notification_create
+      summary: ModelViewSet for getting all UserNotification entries for all users
+  /api/self/notification/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/NotificationMailBox'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Notification_destroy
+      summary: Dismiss notification
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/NotificationMailBox'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Notification_retrieve
+      summary: ModelViewSet for getting all UserNotification entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - format: int32
+          in: formData
+          name: notification_id
+          required: false
+          type: integer
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: false
+          type: string
+        - in: formData
+          name: notification_type
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+        - in: formData
+          name: read_status
+          required: false
+          type: boolean
+        - in: formData
+          name: acknowledged_status
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/NotificationMailBox'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Notification_partial_update
+      summary: ModelViewSet for getting all UserNotification entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - format: int32
+          in: formData
+          name: notification_id
+          required: false
+          type: integer
+        - format: string
+          in: formData
+          name: created_date
+          required: false
+          type: string
+        - format: string
+          in: formData
+          name: expires_date
+          required: false
+          type: string
+        - in: formData
+          name: author
+          required: false
+          type: string
+        - in: formData
+          name: message
+          required: false
+          type: string
+        - in: formData
+          name: notification_type
+          required: false
+          type: string
+        - in: formData
+          name: listing
+          required: false
+          type: string
+        - in: formData
+          name: agency
+          required: false
+          type: string
+        - format: int32
+          in: formData
+          name: entity_id
+          required: false
+          type: integer
+        - in: formData
+          name: read_status
+          required: false
+          type: boolean
+        - in: formData
+          name: acknowledged_status
+          required: false
+          type: boolean
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/NotificationMailBox'
+      tags:
+        - api
+      description: No response was specified
+      operationId: User_Notification_update
+      summary: Update is used only change the read_status or acknowledged_status of the NotificationMailBox

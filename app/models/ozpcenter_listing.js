@@ -147,7 +147,7 @@ module.exports = function(sequelize, DataTypes) {
     last_activity_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {      type: DataTypes.STRING(8192),
+      references: { type: DataTypes.STRING(8192),
         model: 'ozpcenter_listingactivity',
         key: 'id'
       }
@@ -192,6 +192,7 @@ module.exports = function(sequelize, DataTypes) {
   Listing.associate = function (models) {
     Listing.belongsToMany(models.ozpcenter_category, { through: 'category_listing', foreignKey:'listing_id', otherKey:'category_id', as: 'categories' });
     Listing.belongsToMany(models.ozpcenter_contact, { through: 'contact_listing', foreignKey:'listing_id', otherKey:'contact_id', as: 'contacts' });
+
     Listing.belongsToMany(models.ozpcenter_profile, { through: 'profile_listing', foreignKey:'listing_id', otherKey:'profile_id', as: 'owners' });
     Listing.belongsToMany(models.ozpcenter_tag, { through: 'tag_listing', foreignKey:'listing_id', otherKey:'tag_id', as: 'tags' });
     Listing.belongsToMany(models.ozpcenter_intent, { through: 'intent_listing', foreignKey:'listing_id', otherKey:'intent_id', as: 'intents' });
@@ -218,6 +219,27 @@ module.exports = function(sequelize, DataTypes) {
     large_banner_icon = models.ozpcenter_image
     large_banner_icon.belongsTo(models.ozpcenter_imagetype, {foreignKey:'image_type_id',as:'large_banner_icon_image_type'})
     Listing.belongsTo(large_banner_icon, {foreignKey:'large_banner_icon_id',as:'large_banner_icon'});
+  };
+
+
+  // included_listing_fields = [
+  //   {model:models.ozpcenter_agency, as:'agency'},
+  //   {model:models.ozpcenter_image, as:'small_icon'},
+  //   {model:models.ozpcenter_image, as:'large_icon'},
+  //   {model:models.ozpcenter_image, as:'banner_icon'},
+  //   {model:models.ozpcenter_image, as:'large_banner_icon'},
+  //   {model:models.ozpcenter_category, as:'categories'},
+  //   {model:models.ozpcenter_contact, as:'contacts'},
+  //   {model:models.ozpcenter_profile, as:'owners', attributes: ['display_name']},
+  //   {model:models.ozpcenter_tag, as:'tags'},
+  //   {model:models.ozpcenter_intent, as:'intents'},
+  //   {model:models.ozpcenter_screenshot, as:'screenshots',
+  //         include: [{model:models.ozpcenter_image, as:'screenshot_small_image'},
+  //                   {model:models.ozpcenter_image, as:'screenshot_large_image'}]},
+  // ]
+  // Adding a class level method
+  Listing.get_query_fields = function(){
+     return []
   };
 
   return Listing

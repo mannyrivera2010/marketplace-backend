@@ -1,0 +1,105 @@
+
+paths:
+  /api/tag/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Tag'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Tag_list
+      summary: Listing Types
+    post:
+      parameters:
+        - in: formData
+          name: name
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Tag'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Tag_create
+      summary: Listing Types
+  /api/tag/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Tag'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Tag_destroy
+      summary: Listing Types
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Tag'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Tag_retrieve
+      summary: Listing Types
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: name
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Tag'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Tag_partial_update
+      summary: Listing Types
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: name
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Tag'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Tag_update
+      summary: Listing Types
+
+definitions:

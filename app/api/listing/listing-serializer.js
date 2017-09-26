@@ -1,12 +1,8 @@
-var Serializer = require('sequelize-to-json')
-var models = require('../../app/models')
-
-function ListingSerializer() {
-}
+var BaseSerializer = require('../../serializer').BaseSerializer
+var models = require('../../models')
 
 // Our serialization scheme for the `Listing`
 const listingScheme = {
-  // include all own properties and the associated `User` instance
   include: ['@all',
             'agency',
             'small_icon',
@@ -70,18 +66,13 @@ const listingScheme = {
   }
 };
 
-function serialize(listing) {
-    return new Serializer(models.ozpcenter_listing, listingScheme).serialize(listing);
+function ListingSerializer() {
+    this.model = models.ozpcenter_listing;
+    this.schema = listingScheme
 }
 
-function serializeMany(listings) {
-    return Serializer.serializeMany(listings, models.ozpcenter_listing, listingScheme);
-}
-
-ListingSerializer.prototype = {
-  serialize: serialize,
-  serializeMany: serializeMany,
-};
+ListingSerializer.prototype = Object.create(BaseSerializer.prototype);
+ListingSerializer.prototype.constructor = ListingSerializer;
 
 var listingSerializer = new ListingSerializer();
 

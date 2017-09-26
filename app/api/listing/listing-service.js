@@ -1,9 +1,8 @@
 var Promise = require('bluebird')
-var models = require('../../app/models')
+var models = require('../../models')
 
 function ListingService() {
 }
-
 
 included_listing_fields = [
   {model:models.ozpcenter_agency, as:'agency'},
@@ -20,7 +19,6 @@ included_listing_fields = [
         include: [{model:models.ozpcenter_image, as:'screenshot_small_image'},
                   {model:models.ozpcenter_image, as:'screenshot_large_image'}]},
 ]
-
 
 // GET /api/listing
 // Get a list of all system-wide Listing entries

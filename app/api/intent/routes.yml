@@ -1,0 +1,138 @@
+paths:
+  /api/intent/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Intent'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Intent_list
+      summary: ModelViewSet for getting all Intent entries for all users
+    post:
+      parameters:
+        - in: formData
+          name: icon
+          required: true
+          type: string
+        - in: formData
+          name: action
+          required: true
+          type: string
+        - in: formData
+          name: media_type
+          required: true
+          type: string
+        - in: formData
+          name: label
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Intent'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Intent_create
+      summary: ModelViewSet for getting all Intent entries for all users
+  /api/intent/{pk}/:
+    delete:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Intent'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Intent_destroy
+      summary: ModelViewSet for getting all Intent entries for all users
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Intent'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Intent_retrieve
+      summary: ModelViewSet for getting all Intent entries for all users
+    patch:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: icon
+          required: false
+          type: string
+        - in: formData
+          name: action
+          required: false
+          type: string
+        - in: formData
+          name: media_type
+          required: false
+          type: string
+        - in: formData
+          name: label
+          required: false
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Intent'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Intent_partial_update
+      summary: ModelViewSet for getting all Intent entries for all users
+    put:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+        - in: formData
+          name: icon
+          required: true
+          type: string
+        - in: formData
+          name: action
+          required: true
+          type: string
+        - in: formData
+          name: media_type
+          required: true
+          type: string
+        - in: formData
+          name: label
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: ' /definitions/Intent'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Intent_update
+      summary: ModelViewSet for getting all Intent entries for all users

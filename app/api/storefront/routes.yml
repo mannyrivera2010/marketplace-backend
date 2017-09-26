@@ -1,0 +1,44 @@
+
+paths:
+  /api/metadata/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Metadata_GET
+      summary: 'Metadata for the store including categories, agencies, contact types,'
+
+  /api/storefront/:
+    get:
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            $ref: '#/definitions/Storefront'
+      tags:
+        - api
+      description: No response was specified
+      operationId: Storefront_list
+      summary: 'Recommended, Featured, recent, and most popular listings'
+  /api/storefront/{pk}/:
+    get:
+      parameters:
+        - in: path
+          name: pk
+          required: true
+          type: string
+      responses:
+        200:
+          description: No response was specified
+          schema:
+            type: object
+      tags:
+        - api
+      description: No response was specified
+      operationId: Storefront_retrieve
+      summary: Access Control
